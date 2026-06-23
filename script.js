@@ -11,6 +11,7 @@ async function getWeather() {
 
   try {
     const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=en&format=json`;
+
     const geoResponse = await fetch(geoUrl);
     const geoData = await geoResponse.json();
 
@@ -25,6 +26,7 @@ async function getWeather() {
     const country = geoData.results[0].country;
 
     const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
+
     const weatherResponse = await fetch(weatherUrl);
     const weatherData = await weatherResponse.json();
 
